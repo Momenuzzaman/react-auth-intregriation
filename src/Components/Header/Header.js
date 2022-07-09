@@ -11,7 +11,7 @@ const Header = () => {
             <Link to="/register">New User?</Link>
             <Link to="/login">Login</Link>
             <span>{user.displayName}</span>
-            {user.email && <button onClick={logOut}>Sign in out</button>}
+            {user.displayName && <button onClick={logOut}>Sign in out</button>}
         </div>
     );
 };
