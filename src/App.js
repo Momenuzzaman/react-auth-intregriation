@@ -6,6 +6,7 @@ import Register from './Components/Register/Register';
 import Home from './Components/Home/Home';
 import Login from './Components/Login/Login';
 import AuthProvider from './Context/AuthProvider';
+import Shipping from './Components/Shipping/Shipping';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route path="home" element={<Home />} />
+          <Route path="/shipping" element={<Shipping />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
         </Routes>

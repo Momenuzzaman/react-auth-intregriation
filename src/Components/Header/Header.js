@@ -8,6 +8,7 @@ const Header = () => {
     return (
         <div className="header">
             <Link to="/home">Home</Link>
+            <Link to="/shipping">Sipping</Link>
             <Link to="/register">New User?</Link>
             <Link to="/login">Login</Link>
             <span>{user.displayName}</span>
