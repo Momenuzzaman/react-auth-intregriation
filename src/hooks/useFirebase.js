@@ -1,16 +1,16 @@
-import { useEffect, useState } from "react"
-import firebaseAuthentication from "../firebase/firebase.init"
+import { useEffect, useState } from "react";
+import firebaseAuthentication from "../firebase/firebase.init";
 import { getAuth, GoogleAuthProvider, GithubAuthProvider, signOut, onAuthStateChanged, signInWithPopup } from "firebase/auth";
 
-firebaseAuthentication()
+firebaseAuthentication();
 
 
 const useFirebase = () => {
-    const [user, setUser] = useState({})
-    const [error, setError] = useState('')
+    const [user, setUser] = useState({});
+    const [error, setError] = useState('');
 
     const googleProvider = new GoogleAuthProvider();
-    const githubProvider = new GithubAuthProvider()
+    const githubProvider = new GithubAuthProvider();
     const auth = getAuth();
 
     const singInWithGoogle = () => {
@@ -23,34 +23,34 @@ const useFirebase = () => {
             .catch((error) => {
                 const errorMessage = error.message;
                 setError(errorMessage);
-            })
-    }
+            });
+    };
     const singInWithGithub = () => {
         signInWithPopup(auth, githubProvider)
             .then((result) => {
                 const user = result.user;
                 console.log(user);
                 setUser(user);
-            })
-    }
+            });
+    };
     const logOut = () => {
         signOut(auth).then(() => {
-            setUser({})
-        })
-    }
+            setUser({});
+        });
+    };
     useEffect(() => {
         onAuthStateChanged(auth, (user) => {
             if (user) {
                 setUser(user);
             }
-        })
-    }, [auth])
+        });
+    }, [auth]);
     return {
         user,
         error,
         logOut,
         singInWithGoogle,
         singInWithGithub
-    }
-}
-export default useFirebase
+    };
+};
+export default useFirebase;

@@ -3,6 +3,6 @@ import firebaseConfig from "./firebaseConfig";
 
 const firebaseAuthentication = () => {
     initializeApp(firebaseConfig);
-}
+};
 
-export default firebaseAuthentication
+export default firebaseAuthentication;
