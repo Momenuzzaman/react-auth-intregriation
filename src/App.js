@@ -8,6 +8,7 @@ import Login from './Components/Login/Login';
 import AuthProvider from './Context/AuthProvider';
 import Shipping from './Components/Shipping/Shipping';
 import ProtectRoute from './Components/ProtectRoute/ProtectRoute';
+import PrivateOutlet from './Components/PrivateOutlet/PrivateOutlet';
 
 
 
@@ -20,9 +21,14 @@ function App() {
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route path="home" element={<Home />} />
-          <Route path="/shipping" element={<ProtectRoute>
+          {/* 1st way */}
+          {/* <Route path="/shipping" element={<ProtectRoute>
             <Shipping />
-          </ProtectRoute>} />
+          </ProtectRoute>} /> */}
+          {/* 2nd way */}
+          <Route path="/*" element={<PrivateOutlet />}>
+            <Route path="shipping" element={<Shipping />} />
+          </Route>
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
         </Routes>
